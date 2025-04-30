@@ -1,4 +1,3 @@
-
 # Projet : Mise en place de l'infrastructure réseau pour Ekoloclast
 
 ## Présentation du projet
@@ -24,32 +23,52 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 
 ## Par Sprint
 
-### Semaine 1 : Planification et conception
-- Objectifs : Proposer un objectif par sprint et établir un schéma réseau prévisionnel avec le matériel nécessaire.
-- Tâches réalisées : 
+### Semaine 1 : Planification, conception et création initiale
+- **Objectifs :**
+  1. **Fournir un plan schématique du futur réseau :**
+     - Nom des matériels
+     - Configuration IP
+  2. **Fournir un plan d'adressage réseau complet cohérent :**
+     - Configuration IP de LAN/VLAN
+     - Configuration IP des matériels réseaux
+  3. **Faire la liste des serveurs/matériels nécessaires à l'élaboration de la future infrastructure réseau :**
+     - Serveurs nécessaires à l'élaboration de la future infrastructure réseau
+     - Matériels nécessaires à l'élaboration de la future infrastructure réseau
+  4. **Mettre en place une nomenclature de nom :**
+     - Serveurs, ordinateurs, utilisateurs et groupes
+  5. **Création de VMs :**
+     - Serveur : configuration, OS, fonctions/roles
+     - Client : configuration, OS, fonctions/roles
+     - Automatiser la création des VMs avec un script (création d'un domaine, création d'un serveur backup)
+  6. **Création d'un domaine Active Directory :**
+     - Créer l'arborescence
+     - Nom du domaine AD
+     - Configuration des paramètres de domaine
+
+- **Tâches réalisées :**
   - Planification des besoins matériels et logiciels.
   - Réalisation du schéma réseau prévisionnel avec les adresses IP et les rôles des serveurs.
-  
-### Semaine 2 : Création des VMs Serveur et Client
-- Objectifs : Créer les VMs nécessaires pour les serveurs (Active Directory, fichiers, DNS/DHCP) et les clients.
-- Tâches réalisées :
-  - Création et configuration des VMs sous Proxmox.
-  - Installation des systèmes d’exploitation (Windows Server, Ubuntu).
-  - Mise en place des rôles (AD, DNS, DHCP).
-  
-### Semaine 3 : Intégration et tests
-- Objectifs : Intégrer les VMs au réseau et tester les services.
-- Tâches réalisées :
-  - Connexion des VMs au réseau.
-  - Tests de connectivité et de fonctionnement des services (DNS, DHCP, AD).
-  - Validation de la gestion des utilisateurs et des accès.
+  - Liste des serveurs et matériels nécessaires pour l’infrastructure réseau.
+  - Mise en place de la nomenclature pour la gestion des ressources réseau (serveurs, machines et utilisateurs).
+  - Création des VMs pour le serveur et les clients, configuration des rôles et des systèmes d'exploitation.
+  - Mise en place d'un domaine Active Directory.
 
-## Membres du groupe de projet
+## Membres du groupe de projet et rôles par sprint
 
-- **Nom de membre 1** : Responsable de la configuration des serveurs et des VMs (Installation et configuration des OS, rôles de serveur).
-- **Nom de membre 2** : Responsable de la gestion des utilisateurs et de la configuration réseau.
-- **Nom de membre 3** : Responsable des tests et de la validation de l'infrastructure.
-- **Nom de membre 4** : Responsable de la documentation et du suivi des objectifs.
+| Semaine | Scrum Master  | Product Owner  | Développeur  |
+|---------|---------------|----------------|--------------|
+| 1       | Stéphane      | Chahine        | Mohamed      |
+| 2       | Chahine       | Mohamed        | Stéphane     |
+| 3       | Mohamed       | Stéphane       | Chahine      |
+| 4       | Chahine       | Mohamed        | Stéphane     |
+| 6       | Stéphane      | Chahine        | Mohamed      |
+| 7       | Mohamed       | Stéphane       | Chahine      |
+| 8       | Chahine       | Mohamed        | Stéphane     |
+| 10      | Stéphane      | Chahine        | Mohamed      |
+| 11      | Mohamed       | Stéphane       | Chahine      |
+| 12      | Chahine       | Mohamed        | Stéphane     |
+| 13      | Mohamed       | Chahine        | Stéphane     |
+| 14      | Chahine       | Stéphane       | Mohamed      |
 
 ## Choix techniques
 
