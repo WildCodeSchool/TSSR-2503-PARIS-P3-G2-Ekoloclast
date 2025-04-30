@@ -70,6 +70,86 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 | 13      | Mohamed       | Chahine        | Stéphane     |
 | 14      | Chahine       | Stéphane       | Mohamed      |
 
+## Informations techniques
+
+
+### 1 Liste des Serveurs et Équipements
+
+- **Routeur principal** : Connecte les VLANs entre eux et assure la sortie vers Internet.
+- **Switch administrable** : Permet de gérer les VLANs et la communication entre les différents services.
+- **Box FAI** : Connexion Internet pour l'ensemble du réseau.
+- **Serveur AD/DNS/DHCP** : Service de gestion de domaine, résolution DNS, et distribution d'adresses IP.
+- **Serveur de fichiers** : Serveur pour le stockage des fichiers partagés.
+- **Serveur GitLab** : Hébergement des dépôts GitLab pour les équipes de développement.
+- **Serveur RH/Finance** : Hébergement des applications sensibles liées aux ressources humaines et à la finance.
+
+### 2. Plan d'adressage IP / VLAN
+
+- **Réseau principal** : `192.168.10.0/24`
+- **Plage disponible** : `192.168.10.1` à `192.168.10.254`
+- **Masque sous-réseau global** : `/24` divisé en sous-réseaux `/27`
+
+### VLANs et sous-réseaux associés :
+
+| VLAN | Nom du service                | Sous-réseau         | Plage DHCP                 | Adresses statiques principales                  |
+|------|-------------------------------|----------------------|----------------------------|--------------------------------------------------|
+| 10   | Direction Générale            | 192.168.10.0/27      | 192.168.10.5 à .30         | .1 (Routeur)                                     |
+| 20   | RH / Finances                 | 192.168.10.32/27     | 192.168.10.35 à .62        | .33 (Serveur RH), .34 (Imprimante RH)           |
+| 30   | Ventes / Commerciaux          | 192.168.10.64/27     | 192.168.10.67 à .94        | .65 (Serveur Ventes), .66 (Imprimante Ventes)   |
+| 40   | Communication / Marketing     | 192.168.10.96/27     | 192.168.10.99 à .126       | .97 (Serveur Com), .98 (Imprimante Com)         |
+| 50   | Juridique / Services Généraux | 192.168.10.128/27    | 192.168.10.131 à .158      | .129 (Serveur Juridique), .130 (Scanner)        |
+| 60   | DSI                            | 192.168.10.160/27    | 192.168.10.163 à .190      | .161 (AD/DNS/DHCP), .162 (Serveur Fichiers)      |
+| 70   | R&D                            | 192.168.10.192/27    | 192.168.10.195 à .222      | .193 (Gitlab), .194 (Poste test)                |
+| 99   | Administration réseau         | 192.168.10.224/28    | (Pas de DHCP)              | .225 (Routeur), .226 (Switch), .227 (Box FAI)   |
+
+### Remarques importantes :
+- Chaque sous-réseau VLAN (/27) permet 30 hôtes, suffisant pour les équipes actuelles.
+- Le VLAN 99 est réservé aux équipements réseau critiques non accessibles au reste du réseau.
+- Le DHCP sera configuré pour éviter les conflits avec les adresses statiques (réservations et exclusions).
+
+### 3. Liste des serveurs nécessaires
+
+- Serveur AD/DNS/DHCP : gestion du domaine, distribution IP, résolution de noms
+- Serveur de fichiers : stockage et partage de documents par service
+- Serveur GitLab : hébergement de dépôts de code pour l’équipe R&D
+- Serveur RH/Finance : hébergement d'applications sensibles
+- Serveur de sauvegarde (à ajouter) : pour sauvegardes planifiées des serveurs
+
+### 4. Liste des matériels réseau nécessaires
+
+- 1x Routeur principal inter-VLAN
+- 1x Switch administrable L3
+- 1x Box FAI ou modem
+- 1x Baie de brassage (selon taille)
+- Câblage Ethernet Cat 6 ou supérieur
+- Panneaux de brassage et connecteurs RJ45
+
+### 5. Nomenclature des noms
+
+### Serveurs
+- SRV-ADDS
+- SRV-FICHIERS
+- SRV-GITLAB
+- SRV-RHFIN
+- SRV-SAUVEGARDE
+
+### Ordinateurs clients
+- CLI-[Département]-[Numéro] (ex : CLI-RH-01, CLI-DSI-04)
+
+### Utilisateurs
+- Prenom.Nom (ex : Julie.Durand)
+
+### Groupes
+- GRP-DEP-[Département] (ex : GRP-DEP-RH)
+- GRP-SRV-[NomService] (ex : GRP-SRV-GITLAB)
+- GRP-FONC-[Fonction] (ex : GRP-FONC-Admins)
+- GRP-SEC-[TypeAccès] (ex : GRP-SEC-PartageRH)
+
+---
+
+Suite du projet à venir : création des VM, configuration des rôles, déploiement du domaine et intégration des utilisateurs.
+
+
 ## Choix techniques
 
 ### OS utilisé
