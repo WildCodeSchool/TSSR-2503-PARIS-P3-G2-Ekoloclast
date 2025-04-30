@@ -91,16 +91,19 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 
 ### VLANs et sous-réseaux associés :
 
-| VLAN | Nom du service                | Sous-réseau         | Plage DHCP                 | Adresses statiques principales                  |
-|------|-------------------------------|----------------------|----------------------------|--------------------------------------------------|
-| 10   | Direction Générale            | 192.168.10.0/27      | 192.168.10.5 à .30         | .1 (Routeur)                                     |
-| 20   | RH / Finances                 | 192.168.10.32/27     | 192.168.10.35 à .62        | .33 (Serveur RH), .34 (Imprimante RH)           |
-| 30   | Ventes / Commerciaux          | 192.168.10.64/27     | 192.168.10.67 à .94        | .65 (Serveur Ventes), .66 (Imprimante Ventes)   |
-| 40   | Communication / Marketing     | 192.168.10.96/27     | 192.168.10.99 à .126       | .97 (Serveur Com), .98 (Imprimante Com)         |
-| 50   | Juridique / Services Généraux | 192.168.10.128/27    | 192.168.10.131 à .158      | .129 (Serveur Juridique), .130 (Scanner)        |
-| 60   | DSI                            | 192.168.10.160/27    | 192.168.10.163 à .190      | .161 (AD/DNS/DHCP), .162 (Serveur Fichiers)      |
-| 70   | R&D                            | 192.168.10.192/27    | 192.168.10.195 à .222      | .193 (Gitlab), .194 (Poste test)                |
-| 99   | Administration réseau         | 192.168.10.224/28    | (Pas de DHCP)              | .225 (Routeur), .226 (Switch), .227 (Box FAI)   |
+| VLAN  | Nom du service                | Sous-réseau         | Plage DHCP                 | Adresses statiques principales                  |
+|-------|-------------------------------|----------------------|----------------------------|--------------------------------------------------|
+| 10    | Direction Générale            | 192.168.10.0/28      | 192.168.10.2 à .13         | .1 (Routeur)                                     |
+| 20    | Ressources Humaines           | 192.168.10.16/28     | 192.168.10.18 à .29        | .17 (Serveur RH), .30 (Imprimante RH)           |
+| 30    | Direction Financière          | 192.168.10.32/28     | 192.168.10.34 à .45        | .33 (Serveur Finances), .46 (Imprimante Finances)|
+| 40    | Ventes / Commerciaux          | 192.168.10.48/27     | 192.168.10.50 à .78        | .49 (Serveur Ventes), .79 (Imprimante Ventes)   |
+| 50    | Communication                 | 192.168.10.80/28     | 192.168.10.82 à .93        | .81 (Serveur Com), .94 (Scanner Com)            |
+| 60    | Marketing                     | 192.168.10.96/28     | 192.168.10.98 à .109       | .97 (Serveur Marketing), .110 (Imprimante)      |
+| 70    | Juridique                     | 192.168.10.112/28    | 192.168.10.114 à .125      | .113 (Serveur Juridique)                        |
+| 80    | Services Généraux             | 192.168.10.128/28    | 192.168.10.130 à .141      | .129 (Scanner SG)                                |
+| 90    | DSI                            | 192.168.10.144/27    | 192.168.10.146 à .174      | .145 (AD/DNS/DHCP), .175 (Serveur Fichiers)     |
+| 100   | R&D                            | 192.168.10.176/27    | 192.168.10.178 à .206      | .177 (Gitlab), .207 (Poste test)                |
+| 999   | Administration réseau         | 192.168.10.208/28    | (Pas de DHCP)              | .209 (Routeur), .210 (Switch), .211 (Box FAI)   |
 
 ### Remarques importantes :
 - Chaque sous-réseau VLAN (/27) permet 30 hôtes, suffisant pour les équipes actuelles.
