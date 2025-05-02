@@ -85,7 +85,7 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 ### 2. Plan d'adressage IP / VLAN
 
 - **Réseau principal** : `192.168.0.0/24`
-- **Plage disponible** : `192.168.0.1` à `192.168.11.254`
+- **Plage disponible** : `192.168.0.1` à `192.168.12.254`
 - **Masque sous-réseau global** : `/24` divisé en sous-réseaux `/27`
 
 ### VLANs et sous-réseaux associés :
