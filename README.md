@@ -81,29 +81,32 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 - **Serveur AD/DNS/DHCP** : Service de gestion de domaine, résolution DNS, et distribution d'adresses IP.
 - **Serveur de fichiers** : Serveur pour le stockage des fichiers partagés.
 - **Serveur GitLab** : Hébergement des dépôts GitLab pour les équipes de développement.
-- **Serveur RH/Finance** : Hébergement des applications sensibles liées aux ressources humaines et à la finance.
 
 ### 2. Plan d'adressage IP / VLAN
 
-- **Réseau principal** : `192.168.10.0/24`
-- **Plage disponible** : `192.168.10.1` à `192.168.10.254`
+- **Réseau principal** : `192.168.0.0/24`
+- **Plage disponible** : `192.168.0.1` à `192.168.11.254`
 - **Masque sous-réseau global** : `/24` divisé en sous-réseaux `/27`
 
 ### VLANs et sous-réseaux associés :
 
-| VLAN  | Nom du service                | Sous-réseau         | Plage DHCP                 | Adresses statiques principales                  |
-|-------|-------------------------------|----------------------|----------------------------|--------------------------------------------------|
-| 10    | Direction Générale            | 192.168.10.0/28      | 192.168.10.2 à .13         | .1 (Routeur)                                     |
-| 20    | Ressources Humaines           | 192.168.10.16/28     | 192.168.10.18 à .29        | .17 (Serveur RH), .30 (Imprimante RH)           |
-| 30    | Direction Financière          | 192.168.10.32/28     | 192.168.10.34 à .45        | .33 (Serveur Finances), .46 (Imprimante Finances)|
-| 40    | Ventes / Commerciaux          | 192.168.10.48/27     | 192.168.10.50 à .78        | .49 (Serveur Ventes), .79 (Imprimante Ventes)   |
-| 50    | Communication                 | 192.168.10.80/28     | 192.168.10.82 à .93        | .81 (Serveur Com), .94 (Scanner Com)            |
-| 60    | Marketing                     | 192.168.10.96/28     | 192.168.10.98 à .109       | .97 (Serveur Marketing), .110 (Imprimante)      |
-| 70    | Juridique                     | 192.168.10.112/28    | 192.168.10.114 à .125      | .113 (Serveur Juridique)                        |
-| 80    | Services Généraux             | 192.168.10.128/28    | 192.168.10.130 à .141      | .129 (Scanner SG)                                |
-| 90    | DSI                            | 192.168.10.144/27    | 192.168.10.146 à .174      | .145 (AD/DNS/DHCP), .175 (Serveur Fichiers)     |
-| 100   | R&D                            | 192.168.10.176/27    | 192.168.10.178 à .206      | .177 (Gitlab), .207 (Poste test)                |
-| 999   | Administration réseau         | 192.168.10.208/28    | (Pas de DHCP)              | .209 (Routeur), .210 (Switch), .211 (Box FAI)   |
+| VLAN  | Nom du service                | Sous-réseau         | Plage DHCP                  | Adresses statiques principales                             |
+|-------|-------------------------------|----------------------|-----------------------------|-------------------------------------------------------------|
+| 10    | Direction Générale            | 192.168.1.0/24       | 192.168.1.100 à .150        | .1 (Routeur), .10 (Poste DG), .20 (Imprimante DG)           |
+| 20    | Ressources Humaines           | 192.168.2.0/24       | 192.168.2.100 à .150        | .1 (Routeur), .10 (Serveur RH), .20 (Imprimante RH)         |
+| 30    | Direction Financière          | 192.168.3.0/24       | 192.168.3.100 à .150        | .1 (Routeur), .10 (Serveur Finances), .20 (Imprimante)      |
+| 40    | Ventes / Commerciaux          | 192.168.4.0/24       | 192.168.4.100 à .200        | .1 (Routeur), .10 (Serveur Ventes), .20 (Imprimante Ventes) |
+| 50    | Communication                 | 192.168.5.0/24       | 192.168.5.100 à .150        | .1 (Routeur), .10 (Serveur Com), .20 (Scanner Com)          |
+| 60    | Marketing                     | 192.168.6.0/24       | 192.168.6.100 à .150        | .1 (Routeur), .10 (Serveur Marketing), .20 (Imprimante)     |
+| 70    | Juridique                     | 192.168.7.0/24       | 192.168.7.100 à .150        | .1 (Routeur), .10 (Serveur Juridique)                       |
+| 80    | Services Généraux             | 192.168.8.0/24       | 192.168.8.100 à .150        | .1 (Routeur), .10 (Scanner SG)                              |
+| 90    | DSI                            | 192.168.9.0/24       | 192.168.9.100 à .200        | .1 (Routeur), .10 (SRV-AD), .11 (SRV-DHCP), .12 (SRV-DNS), .13 (SRV-FICHIERS), .14 (SRV-GITLAB), .15 (SRV-SAUVEGARDE), .16 (SRV-WEB), .17 (SRV-APP), .18 (SRV-MESSAGERIE) |
+| 91    | FSMO                          | 192.168.10.0/24      | 192.168.10.100 à .120       | .1 (Routeur), .10 (Schema Master), .11 (PDC Emulator), .12 (RID Master), .13 (Domain Naming Master), .14 (Infrastructure Master) |
+| 100   | R&D                            | 192.168.11.0/24      | 192.168.11.100 à .150       | .1 (Routeur), .10 (Gitlab), .11 (Poste test)                |
+| 999   | Administration réseau         | 192.168.12.0/24      | (Pas de DHCP)               | .1 (Routeur), .10 (Switch Admin), .11 (Box FAI)             |
+
+
+
 
 ### Remarques importantes :
 - Chaque sous-réseau VLAN (/27) permet 30 hôtes, suffisant pour les équipes actuelles.
@@ -112,11 +115,19 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 
 ### 3. Liste des serveurs nécessaires
 
-- Serveur AD/DNS/DHCP : gestion du domaine, distribution IP, résolution de noms
+- Serveur ADDS (AD/DNS/DHCP) : gestion du domaine, distribution IP, résolution de noms
 - Serveur de fichiers : stockage et partage de documents par service
 - Serveur GitLab : hébergement de dépôts de code pour l’équipe R&D
-- Serveur RH/Finance : hébergement d'applications sensibles
-- Serveur de sauvegarde (à ajouter) : pour sauvegardes planifiées des serveurs
+- Serveur de sauvegarde : pour les sauvegardes planifiées de l’ensemble des serveurs
+- Serveur de messagerie : envoi et réception des emails internes et externes
+- Serveur web : hébergement du site web de l’entreprise
+- Serveur applicatif : hébergement des applications métiers (intranet, CRM, etc.)
+- Serveur DMZ : hébergement sécurisé pour les services exposés (web, mail)
+- Serveur FSMO - Schema Master : gestion du schéma AD
+- Serveur FSMO - Domain Naming Master : gestion des noms de domaine
+- Serveur FSMO - RID Master : attribution des identifiants uniques
+- Serveur FSMO - PDC Emulator : compatibilité avec anciens DC et horloge réseau
+- Serveur FSMO - Infrastructure Master : gestion des références entre domaines
 
 ### 4. Liste des matériels réseau nécessaires
 
@@ -133,8 +144,16 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 - SRV-ADDS
 - SRV-FICHIERS
 - SRV-GITLAB
-- SRV-RHFIN
 - SRV-SAUVEGARDE
+- SRV-MESSAGERIE
+- SRV-WEB
+- SRV-APP
+- SRV-DMZ
+- SRV-FSMO-SCHEMA
+- SRV-FSMO-DOMAIN
+- SRV-FSMO-RID
+- SRV-FSMO-PDC
+- SRV-FSMO-INFRASTRUCTURE
 
 ### Ordinateurs clients
 - CLI-[Département]-[Numéro] (ex : CLI-RH-01, CLI-DSI-04)
