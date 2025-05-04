@@ -92,15 +92,15 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 
 | VLAN  | Nom du service                | Sous-réseau         | Plage DHCP                  | Adresses statiques principales                             |
 |-------|-------------------------------|----------------------|-----------------------------|-------------------------------------------------------------|
-| 10    | Direction Générale            | 192.168.1.0/24       | 192.168.1.100 à .150        | .1 (Routeur), .10 (Poste DG), .20 (Imprimante DG)           |
-| 20    | Ressources Humaines           | 192.168.2.0/24       | 192.168.2.100 à .150        | .1 (Routeur), .10 (Serveur RH), .20 (Imprimante RH)         |
-| 30    | Direction Financière          | 192.168.3.0/24       | 192.168.3.100 à .150        | .1 (Routeur), .10 (Serveur Finances), .20 (Imprimante)      |
-| 40    | Ventes / Commerciaux          | 192.168.4.0/24       | 192.168.4.100 à .200        | .1 (Routeur), .10 (Serveur Ventes), .20 (Imprimante Ventes) |
-| 50    | Communication                 | 192.168.5.0/24       | 192.168.5.100 à .150        | .1 (Routeur), .10 (Serveur Com), .20 (Scanner Com)          |
-| 60    | Marketing                     | 192.168.6.0/24       | 192.168.6.100 à .150        | .1 (Routeur), .10 (Serveur Marketing), .20 (Imprimante)     |
-| 70    | Juridique                     | 192.168.7.0/24       | 192.168.7.100 à .150        | .1 (Routeur), .10 (Serveur Juridique)                       |
-| 80    | Services Généraux             | 192.168.8.0/24       | 192.168.8.100 à .150        | .1 (Routeur), .10 (Scanner SG)                              |
-| 90    | DSI                            | 192.168.9.0/24       | 192.168.9.100 à .200        | .1 (Routeur), .10 (SRV-AD), .11 (SRV-DHCP), .12 (SRV-DNS), .13 (SRV-FICHIERS), .14 (SRV-GITLAB), .15 (SRV-SAUVEGARDE), .16 (SRV-WEB), .17 (SRV-APP), .18 (SRV-MESSAGERIE) |
+| 10    | Direction Générale            | 192.168.1.0/24       | 192.168.1.101 à .150        | .1 (Routeur), .10 (Poste DG), .20 (Imprimante DG)           |
+| 20    | Ressources Humaines           | 192.168.2.0/24       | 192.168.2.101 à .150        | .1 (Routeur), .10 (Serveur RH), .20 (Imprimante RH)         |
+| 30    | Direction Financière          | 192.168.3.0/24       | 192.168.3.101 à .150        | .1 (Routeur), .10 (Serveur Finances), .20 (Imprimante)      |
+| 40    | Ventes / Commerciaux          | 192.168.4.0/24       | 192.168.4.101 à .200        | .1 (Routeur), .10 (Serveur Ventes), .20 (Imprimante Ventes) |
+| 50    | Communication                 | 192.168.5.0/24       | 192.168.5.101 à .150        | .1 (Routeur), .10 (Serveur Com), .20 (Scanner Com)          |
+| 60    | Marketing                     | 192.168.6.0/24       | 192.168.6.101 à .150        | .1 (Routeur), .10 (Serveur Marketing), .20 (Imprimante)     |
+| 70    | Juridique                     | 192.168.7.0/24       | 192.168.7.101 à .150        | .1 (Routeur), .10 (Serveur Juridique)                       |
+| 80    | Services Généraux             | 192.168.8.0/24       | 192.168.8.101 à .150        | .1 (Routeur), .10 (Scanner SG)                              |
+| 90    | DSI                            | 192.168.9.0/24       | 192.168.9.101 à .200        | .1 (Routeur), .10 (SRV-AD), .11 (SRV-DHCP), .12 (SRV-DNS), .13 (SRV-FICHIERS), .14 (SRV-GITLAB), .15 (SRV-SAUVEGARDE), .16 (SRV-WEB), .17 (SRV-APP), .18 (SRV-MESSAGERIE) |
 | 91    | FSMO                          | 192.168.10.0/24      | 192.168.10.100 à .120       | .1 (Routeur), .10 (Schema Master), .11 (PDC Emulator), .12 (RID Master), .13 (Domain Naming Master), .14 (Infrastructure Master) |
 | 100   | R&D                            | 192.168.11.0/24      | 192.168.11.100 à .150       | .1 (Routeur), .10 (Gitlab), .11 (Poste test)                |
 | 999   | Administration réseau         | 192.168.12.0/24      | (Pas de DHCP)               | .1 (Routeur), .10 (Switch Admin), .11 (Box FAI)             |
@@ -140,20 +140,20 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 
 ### 5. Nomenclature des noms
 
-### Serveurs
-- SRV-ADDS
-- SRV-FICHIERS
-- SRV-GITLAB
-- SRV-SAUVEGARDE
-- SRV-MESSAGERIE
-- SRV-WEB
-- SRV-APP
-- SRV-DMZ
-- SRV-FSMO-SCHEMA
-- SRV-FSMO-DOMAIN
-- SRV-FSMO-RID
-- SRV-FSMO-PDC
-- SRV-FSMO-INFRASTRUCTURE
+### Serveurs et IP associées
+- SRV-ADDS : 192.168.9.10
+- SRV-FICHIERS : 192.168.9.13
+- SRV-GITLAB : 192.168.9.14
+- SRV-SAUVEGARDE : 192.168.9.15
+- SRV-MESSAGERIE : 192.168.200.10
+- SRV-WEB : 192.168.200.11
+- SRV-APP : 192.168.9.17
+- SRV-DMZ : 192.168.200.0
+- SRV-FSMO-SCHEMA : 192.168.9.20
+- SRV-FSMO-DOMAIN : 192.168.9.21
+- SRV-FSMO-RID : 192.168.9.22
+- SRV-FSMO-PDC : 192.168.9.23
+- SRV-FSMO-INFRASTRUCTURE : 192.168.9.24
 
 ### Ordinateurs clients
 - CLI-[Département]-[Numéro] (ex : CLI-RH-01, CLI-DSI-04)
