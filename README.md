@@ -175,13 +175,12 @@ Suite du projet à venir : création des VM, configuration des rôles, déploiem
 ## Choix techniques
 
 ### OS utilisé
-- **Serveurs** : Windows Server 2022 pour le serveur Active Directory, DNS, DHCP et le serveur de fichiers.
+- **Serveurs** : Windows Server 2022
 - **Clients** : Windows 10 pour les postes de travail des utilisateurs.
 - **Hyperviseur** : Proxmox pour la gestion des VMs et l'hébergement des serveurs et clients virtuels.
 
 ### Version de l'OS
 - **Windows Server** : 2022
-- **Ubuntu Server** : 20.04 (pour certaines applications spécifiques comme Gitlab)
 - **Proxmox** : Version la plus récente au moment de la mise en place du projet.
 
 ### Matériel
