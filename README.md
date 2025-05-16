@@ -158,7 +158,7 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 Passerelle : 	192.168.9.1
 Passerelle serveurs DMZ : 192.168.200.1
 
-DNS:192.168.9.10
+DNS : 192.168.9.10
 
 ![projet3-gns4-0](https://github.com/user-attachments/assets/40945ce8-134b-4524-8d5b-6504f5dc8562)
 
