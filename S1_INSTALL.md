@@ -26,7 +26,8 @@ Rename-Computer -NewName "SRV-FICHIERS" -Restart
 New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.9.13 -PrefixLength 24 -DefaultGateway 192.168.9.1
 Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses 192.168.9.10
 Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
-Restart-Computer```
+Restart-Computer
+```
 
 ### Étape 3 : Déploiement des Services
 
