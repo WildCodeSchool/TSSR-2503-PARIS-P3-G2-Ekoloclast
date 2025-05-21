@@ -21,7 +21,7 @@ Avant de commencer l'installation, assurez-vous de disposer des éléments suiva
 3. **Configurer les rôles et services** sur les serveurs (AD, DNS, DHCP, etc.).
 
 Exemple de procédure à suivre sur chaque serveur:
-```bash
+``` bash
 Rename-Computer -NewName "SRV-FICHIERS" -Restart
 New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.9.13 -PrefixLength 24 -DefaultGateway 192.168.9.1
 Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses 192.168.9.10
