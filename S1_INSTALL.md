@@ -20,6 +20,14 @@ Avant de commencer l'installation, assurez-vous de disposer des éléments suiva
 2. **Installer les systèmes d'exploitation** sur chaque machine virtuelle.
 3. **Configurer les rôles et services** sur les serveurs (AD, DNS, DHCP, etc.).
 
+Exemple de procédure à suivre sur chaque serveur:
+```bash
+Rename-Computer -NewName "SRV-FICHIERS" -Restart
+New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.9.13 -PrefixLength 24 -DefaultGateway 192.168.9.1
+Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses 192.168.9.10
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
+Restart-Computer```
+
 ### Étape 3 : Déploiement des Services
 
 1. **Active Directory et DNS** : Configurez le contrôleur de domaine, les serveurs DNS et DHCP.
