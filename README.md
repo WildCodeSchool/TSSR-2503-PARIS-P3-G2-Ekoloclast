@@ -166,7 +166,18 @@ DNS : 192.168.9.10
 - CLI-[Département]-[Numéro] (ex : CLI-RH-01, CLI-DSI-04)
 
 ### Utilisateurs
-- Prenom.Nom (ex : Julie.Durand)
+- Jean Lefèvre – CEO
+- Sophie Moreau – Responsable RH
+- Claire Dubois – Directrice Financière
+- Thomas Girard – Responsable des Ventes
+- Laura Meunier – Chargée de Communication
+- Julie Fontaine – Responsable Marketing
+- Manon Perez – Juriste
+- Fatou Diallo – Responsable Services Généraux
+- Antoine Leclerc – Administrateur Systèmes & Réseaux
+- Inès Boudra – Administratrice Active Directory
+- Nathan Caron – Développeur R&D
+- Damien Rousseau – Ingénieur Réseau
 
 ### Groupes
 - GRP-DEP-[Département] (ex : GRP-DEP-RH)
