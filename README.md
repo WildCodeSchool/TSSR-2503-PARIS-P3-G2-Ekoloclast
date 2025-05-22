@@ -181,14 +181,18 @@ DNS : 192.168.9.10
 - Damien Rousseau – Ingénieur Réseau
 
 ### Groupes
-- GRP-DEP-[Département] (ex : GRP-DEP-RH)
-- GRP-SRV-[NomService] (ex : GRP-SRV-GITLAB)
-- GRP-FONC-[Fonction] (ex : GRP-FONC-Admins)
-- GRP-SEC-[TypeAccès] (ex : GRP-SEC-PartageRH)
+- GRP-DEP-DG
+- GRP-DEP-RH
+- GRP-DEP-FIN
+- GRP-DEP-COM
+- GRP-DEP-VENTE
+- GRP-DEP-MARKETING
+- GRP-DEP-JUR
+- GRP-DEP-SG
+- GRP-DEP-DSI
+- GRP-DEP-R&D
 
 ---
-
-Suite du projet à venir : création des VM, configuration des rôles, déploiement du domaine et intégration des utilisateurs.
 
 
 ## Choix techniques
