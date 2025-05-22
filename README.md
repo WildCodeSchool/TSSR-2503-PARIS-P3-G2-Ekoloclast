@@ -140,6 +140,8 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 
 ### 5. Nomenclature des noms
 
+![projet3-gns4-0](https://github.com/user-attachments/assets/40945ce8-134b-4524-8d5b-6504f5dc8562)
+
 ### Serveurs et IP associées
 - SRV-ADDS : 192.168.9.10
 - SRV-FICHIERS : 192.168.9.13
@@ -154,17 +156,23 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 - SRV-FSMO-RID : 192.168.9.22
 - SRV-FSMO-PDC : 192.168.9.23
 - SRV-FSMO-INFRASTRUCTURE : 192.168.9.24
-- SRV-ADDS-redondance: 192.168.9.25 
+- SRV : 192.168.9.25 (Redondance SRV ADDS)
 
 Passerelle : 	192.168.9.1
 Passerelle serveurs DMZ : 192.168.200.1
 
 DNS : 192.168.9.10
 
-![projet3-gns4-0](https://github.com/user-attachments/assets/40945ce8-134b-4524-8d5b-6504f5dc8562)
-
 ### Ordinateurs clients
-- CLI-[Département]-[Numéro] (ex : CLI-RH-01, CLI-DSI-04)
+- PC-DG : 192.168.1.101
+- PC-RH : 192.168.2.101
+- PC-FIN : 192.168.3.101
+- PC-VENTES : 192.168.4.101
+- PC-COM : 192.168.5.101
+- PC-MARKETING : 192.168.6.101
+- PC-JURIDIQUE : 192.168.7.101
+- PC-SG : 192.168.8.101
+- PC-RD : 192.168.11.101
 
 ### Utilisateurs
 - Jean Lefèvre – CEO
