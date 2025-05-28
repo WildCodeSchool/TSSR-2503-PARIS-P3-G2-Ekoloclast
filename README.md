@@ -156,7 +156,7 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 - SRV-FSMO-RID : 192.168.9.22
 - SRV-FSMO-PDC : 192.168.9.23
 - SRV-FSMO-INFRASTRUCTURE : 192.168.9.24
-- SRV : 192.168.9.25 (Redondance SRV ADDS)
+- SRV-CORE : 192.168.9.25 (Redondance SRV ADDS)
 
 Passerelle : 	192.168.9.1
 Passerelle serveurs DMZ : 192.168.200.1
