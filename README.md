@@ -158,6 +158,10 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 - SRV-FSMO-INFRASTRUCTURE : 192.168.9.24
 - SRV-CORE : 192.168.9.25 (Redondance SRV ADDS)
 
+Serveurs additionnels pour objectifs hebdomadaires:
+- SRV-DEBIAN : 192.168.9.26
+- SRV-GLPI : 192.168.9.27
+
 Passerelle : 	192.168.9.1
 Passerelle serveurs DMZ : 192.168.200.1
 
