@@ -1,0 +1,11 @@
+{
+  "ComputerName": "SRV-REPLICA",
+  "IPAddress": "192.168.9.25",
+  "PrefixLength": 24,
+  "Gateway": "192.168.9.1",
+  "DNSServer": "192.168.9.10",
+  "DomainName": "domaine.local",
+  "DomainUser": "Administrateur",
+  "DomainPassword": "MotDePasseIci"
+}
+
