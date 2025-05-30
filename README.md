@@ -55,20 +55,20 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 
 ## Membres du groupe de projet et rôles par sprint
 
-| Semaine | Scrum Master  | Product Owner  | Développeur  |
-|---------|---------------|----------------|--------------|
-| 1       | Stéphane      | Chahine        | Mohamed      |
-| 2       | Chahine       | Mohamed        | Stéphane     |
-| 3       | Mohamed       | Stéphane       | Chahine      |
-| 4       | Chahine       | Mohamed        | Stéphane     |
-| 6       | Stéphane      | Chahine        | Mohamed      |
-| 7       | Mohamed       | Stéphane       | Chahine      |
-| 8       | Chahine       | Mohamed        | Stéphane     |
-| 10      | Stéphane      | Chahine        | Mohamed      |
-| 11      | Mohamed       | Stéphane       | Chahine      |
-| 12      | Chahine       | Mohamed        | Stéphane     |
-| 13      | Mohamed       | Chahine        | Stéphane     |
-| 14      | Chahine       | Stéphane       | Mohamed      |
+| Semaine | Scrum Master  | Product Owner  |
+|---------|---------------|----------------|
+| 1       | Stéphane      | Chahine        |
+| 2       | Chahine       | Stéphane       |
+| 3       | Stéphane      | Chahine        |
+| 4       | Chahine       | Stéphane       |
+| 6       | Stéphane      | Chahine        |
+| 7       | Chahine       | Stéphane       |
+| 8       | Stéphane      | Chahine        |
+| 10      | Chahine       | Stéphane       |
+| 11      | Stéphane      | Chahine        |
+| 12      | Chahine       | Stéphane       |
+| 13      | Stéphane      | Chahine        |
+| 14      | Chahine       | Stéphane       |
 
 ## Informations techniques
 
