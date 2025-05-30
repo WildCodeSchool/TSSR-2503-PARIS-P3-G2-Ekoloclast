@@ -167,6 +167,11 @@ Passerelle serveurs DMZ : 192.168.200.1
 
 DNS : 192.168.9.10
 
+Accés internet pour les VM via 
+device : vmbr0 
+réseau 192.168.240.0/24 
+passerelle :192.168.240.2
+
 ### Ordinateurs clients
 - PC-DG : 192.168.1.101
 - PC-RH : 192.168.2.101
