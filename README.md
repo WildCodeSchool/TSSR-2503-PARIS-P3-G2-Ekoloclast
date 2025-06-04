@@ -183,6 +183,8 @@ passerelle :192.168.240.2
 - PC-SG : 192.168.8.101
 - PC-RD : 192.168.11.101
 
+- G2-WinClient-GPO : 192.168.9.28
+
 ### Utilisateurs
 - Jean Lefèvre – CEO
 - Sophie Moreau – Responsable RH
