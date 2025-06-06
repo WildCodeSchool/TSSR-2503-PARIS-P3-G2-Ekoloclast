@@ -105,6 +105,14 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 | 100   | R&D                            | 192.168.11.0/24      | 192.168.11.100 à .150       | .1 (Routeur), .10 (Gitlab), .11 (Poste test)                |
 | 999   | Administration réseau         | 192.168.12.0/24      | (Pas de DHCP)               | .1 (Routeur), .10 (Switch Admin), .11 (Box FAI)             |
 
+| Interface pfSense | VLAN | Nom             | Adresse       | Rôle                      |
+| ----------------- | ---- | --------------- | ------------- | ------------------------- |
+| vmbr1.10          | 10   | DG              | 192.168.1.1   | Passerelle VLAN 10        |
+| vmbr1.20          | 20   | RH              | 192.168.2.1   | Passerelle VLAN 20        |
+| ...               | ...  | ...             | ...           | ...                       |
+| vmbr1.90          | 90   | DSI             | 192.168.9.1   | Passerelle DSI            |
+| vmbr1.999         | 999  | Admin Réseau    | 192.168.12.1  | Accès à pfSense (web/ssh) |
+| vmbr0 (WAN)       | —    | Internet Public | 192.168.240.X | Accès à Internet (NAT)    |
 
 
 
