@@ -100,7 +100,7 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 | 60    | Marketing                     | 192.168.6.0/24       | 192.168.6.101 à .150        | .1 (Routeur), .10 (Serveur Marketing), .20 (Imprimante)     |
 | 70    | Juridique                     | 192.168.7.0/24       | 192.168.7.101 à .150        | .1 (Routeur), .10 (Serveur Juridique)                       |
 | 80    | Services Généraux             | 192.168.8.0/24       | 192.168.8.101 à .150        | .1 (Routeur), .10 (Scanner SG)                              |
-| 90    | DSI                            | 192.168.9.0/24       | 192.168.9.101 à .200        | .1 (Routeur), .10 (SRV-AD), .11 (SRV-DHCP), .12 (SRV-DNS), .13 (SRV-FICHIERS), .14 (SRV-GITLAB), .15 (SRV-SAUVEGARDE), .16 (SRV-WEB), .17 (SRV-APP), .18 (SRV-MESSAGERIE) |
+| 90    | DSI                            | 192.168.9.0/24       | 192.168.9.101 à .200        | .1 (Routeur) .10 (SRV-AD), .11 (SRV-DHCP), .12 (SRV-DNS), .13 (SRV-FICHIERS), .14 (SRV-GITLAB), .15 (SRV-SAUVEGARDE), .17 (SRV-APP)|
 | 91    | FSMO                          | 192.168.10.0/24      | 192.168.10.100 à .120       | .1 (Routeur), .10 (Schema Master), .11 (PDC Emulator), .12 (RID Master), .13 (Domain Naming Master), .14 (Infrastructure Master) |
 | 100   | R&D                            | 192.168.11.0/24      | 192.168.11.100 à .150       | .1 (Routeur), .10 (Gitlab), .11 (Poste test)                |
 | 999   | Administration réseau         | 192.168.12.0/24      | (Pas de DHCP)               | .1 (Routeur), .10 (Switch Admin), .11 (Box FAI)             |
@@ -113,6 +113,17 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 | vmbr1.90          | 90   | DSI             | 192.168.9.1   | Passerelle DSI            |
 | vmbr1.999         | 999  | Admin Réseau    | 192.168.12.1  | Accès à pfSense (web/ssh) |
 | vmbr0 (WAN)       | —    | Internet Public | 192.168.240.X | Accès à Internet (NAT)    |
+
+| Source                  | Source réseau / VLAN                              | Ports / Protocoles     | Destination                  | Commentaire                                   |
+|-------------------------|-------------------------------------------------|-----------------------|------------------------------|-----------------------------------------------|
+| Postes utilisateurs     | VLAN utilisateurs (vmbr3,4....) et réseau lié (ex : vmbr3, OPT2) | UDP/TCP 53            | 192.168.9.12 (SRV-DNS)       | Permet la connexion au rôle DNS d'ADDS        |
+| Postes utilisateurs     | VLAN utilisateurs (vmbr3,4....) et réseau lié (ex : vmbr3, OPT2) | TCP/UDP 88, 389, 445  | 192.168.9.10 (SRV-ADDS)      | Permet l'authentification et l'ajout au domaine ADDS |
+| Postes utilisateurs     | VLAN utilisateurs (vmbr3,4....) et réseau lié (ex : vmbr3, OPT2) | TCP 445, TCP 139      | 192.168.9.13 (SRV-FICHIERS)  | Permet d'accéder aux dossiers partagés Windows |
+| Postes utilisateurs     | VLAN utilisateurs (vmbr3,4....) et réseau lié (ex : vmbr3, OPT2) | TCP 25, 465, 587, 993 | 192.168.200.10 (Messagerie)  | Permet l'accès messagerie (SMTP, IMAPS) vers SRV-MESSAGERIE |
+| SRV-MESSAGERIE          | DMZ - OTP1                                       | TCP 25, 465, 587      | 192.168.240.0/24             | Envoi mails externes                           |
+| Postes utilisateurs     | VLAN utilisateurs (vmbr3,4....) et réseau lié (ex : vmbr3, OPT2) | TCP 80, TCP 443       | 192.168.200.11 (Web)         | Intranet et applis Web internes (gestion stock, tickets etc) |
+| LAN                     | LAN (vmbr2, LAN)                                | ANY                   | ANY                          | Permet toutes les connexions en provenance du LAN (règle par défaut) |
+
 
 
 
