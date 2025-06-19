@@ -229,5 +229,3 @@ foreach ($user in $users) {
 }
 
 Write-Host "Traitement terminé."
-
-This paste expires in <1 hour. Public IP access. Share whatever you see with others in seconds with Context.Terms of ServiceReport this
