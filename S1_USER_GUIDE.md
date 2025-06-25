@@ -17,16 +17,16 @@ Les administrateurs réseau peuvent gérer les VLANs via le switch administrable
 
 ### Configuration de GLPI
 
-Nom	ADEko
-Serveur	srv-adds.ekoloclast.local
-Port	389
-DN du compte (Bind)	CN=Administrator,CN=Users,DC=ekoloclast,DC=local
-Mot de passe	X
-BaseDN	DC=ekoloclast,DC=local
-Filtre de connexion	(sAMAccountName=%u)
-Champ de l'identifiant	sAMAccountName
-Champ de synchro	displayName
-Utiliser le bind	✅ Oui
+Nom	ADEko  
+Serveur	srv-adds.ekoloclast.local  
+Port	389  
+DN du compte (Bind)	CN=Administrator,CN=Users,DC=ekoloclast,DC=local  
+Mot de passe	X  
+BaseDN	DC=ekoloclast,DC=local  
+Filtre de connexion	(sAMAccountName=%u)  
+Champ de l'identifiant	sAMAccountName  
+Champ de synchro	displayName  
+Utiliser le bind	✅ Oui  
 
 ## FAQ
 
