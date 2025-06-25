@@ -178,8 +178,8 @@ Le projet a pour objectif de concevoir et de mettre en place une infrastructure 
 - SRV-CORE : 192.168.9.25 (Redondance SRV ADDS)
 
 Serveurs additionnels pour objectifs hebdomadaires:
-- SRV-DEBIAN : 192.168.9.26
-- SRV-GLPI : 192.168.9.27
+
+- SRV-GLPI : 192.168.9.26
 - SRV-ZABBIX : 192.168.9.30
 
 Passerelle : 	192.168.9.1
