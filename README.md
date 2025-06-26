@@ -192,6 +192,9 @@ device : vmbr0
 réseau 192.168.240.0/24 
 passerelle :192.168.240.2
 
+Clients additionnels pour objectifs hebdomadaires:
+- WIN-GPI : 192.168.9.31
+
 ### Ordinateurs clients
 - PC-DG : 192.168.1.101
 - PC-RH : 192.168.2.101
