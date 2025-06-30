@@ -190,7 +190,7 @@ DNS : 192.168.9.10
 Accés internet pour les VM via 
 device : vmbr0 
 réseau 192.168.240.0/24 
-passerelle :192.168.240.2
+passerelle :192.168.240.1
 
 Clients additionnels pour objectifs hebdomadaires:
 - WIN-GPI : 192.168.9.31
