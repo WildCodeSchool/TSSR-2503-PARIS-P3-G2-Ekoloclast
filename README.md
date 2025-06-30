@@ -196,6 +196,17 @@ Clients additionnels pour objectifs hebdomadaires:
 - WIN-GPI : 192.168.9.31
 
 ### Ordinateurs clients
+
+Exemple de configuration IP pour le département DG : 
+
+Adresse IP : 192.168.1.101 (dans la plage du VLAN DG)
+
+Masque : 255.255.255.0
+
+Passerelle : 192.168.1.1 (interface VLAN 10 sur le routeur VyOS)
+
+DNS : 192.168.9.10 (serveur ADDS)
+
 - PC-DG : 192.168.1.101
 - PC-RH : 192.168.2.101
 - PC-FIN : 192.168.3.101
