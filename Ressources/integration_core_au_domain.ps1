@@ -43,20 +43,8 @@ Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Informatio
 # 🔧 Zone des actions du script
 # ===========================
 
-Write-Log "Exemple : création d’un utilisateur AD JohnDoe"
 
 try {
-    # Exemple de commande
-    # New-ADUser -Name "JohnDoe" -GivenName "John" -Surname "Doe" -SamAccountName "JohnDoe" -AccountPassword (ConvertTo-SecureString "Password123!" -AsPlainText -Force) -Enabled $true
-
-    Write-Log "Création de l'utilisateur JohnDoe effectuée avec succès"
-    Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Information -EventId 110 -Message "Utilisateur JohnDoe créé avec succès"
-}
-catch {
-    Write-Log "Erreur lors de la création de l'utilisateur : $_" -Level "ERROR"
-    Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Error -EventId 500 -Message "Erreur : $_"
-}
-
 
 $Domain = "ekoloclast.local"
 $OU = "OU=SERVEURS,DC=ekoloclast,DC=local"
@@ -66,3 +54,15 @@ $Credential = New-Object System.Management.Automation.PSCredential ($User, $Pass
 
 # Joindre au domaine
 Add-Computer -DomainName $Domain -Credential $Credential -OUPath $OU -Restart
+
+
+
+
+    Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Information -EventId 110 -Message "succès"
+}
+catch {
+    Write-Log "Erreur : $_" -Level "ERROR"
+    Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Error -EventId 500 -Message "Erreur : $_"
+}
+
+
