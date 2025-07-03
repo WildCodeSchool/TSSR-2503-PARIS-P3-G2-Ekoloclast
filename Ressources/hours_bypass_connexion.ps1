@@ -46,15 +46,15 @@ Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Informatio
 
 
 try {
-    Autoriser 7h à 18h (heure locale), du lundi au vendredi, bypass cette règle pour les administrateurs
-$users = Get-ADUser -Filter * -SearchBase "OU=LabUtilisateurs,DC=ekoloclast,DC=local"
-foreach ($user in $users) {
-    if (-not (Get-ADGroupMember "Groupe_Bypass_Connexion" | Where-Object {$_.distinguishedName -eq $user.DistinguishedName})) {
-        Set-ADUser $user -LogonHours (New-LogonHours "Monday-Friday" 7 18)
+    #Autoriser 7h à 18h (heure locale), du lundi au vendredi, bypass cette règle pour les administrateurs
+    $users = Get-ADUser -Filter * -SearchBase "OU=LabUtilisateurs,DC=ekoloclast,DC=local"
+    foreach ($user in $users) {
+        if (-not (Get-ADGroupMember "Groupe_Bypass_Connexion" | Where-Object {$_.distinguishedName -eq $user.DistinguishedName})) {
+            Set-ADUser $user -LogonHours (New-LogonHours "Monday-Friday" 7 18)
+        }
     }
-}
-
-    Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Information -EventId 110 -Message "succès"
+    
+        Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Information -EventId 110 -Message "succès"
 }
 catch {
     Write-Log "Erreur  : $_" -Level "ERROR"
