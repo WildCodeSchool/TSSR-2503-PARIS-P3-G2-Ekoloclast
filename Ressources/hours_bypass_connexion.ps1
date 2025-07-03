@@ -54,7 +54,7 @@ foreach ($user in $users) {
     }
 }
 
-    Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Information -EventId 110 -Message "Utilisateur JohnDoe créé avec succès"
+    Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Information -EventId 110 -Message "succès"
 }
 catch {
     Write-Log "Erreur  : $_" -Level "ERROR"
