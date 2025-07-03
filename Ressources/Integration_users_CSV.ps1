@@ -43,42 +43,37 @@ Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Informatio
 # 🔧 Zone des actions du script
 # ===========================
 
-Write-Log "Exemple : création d’un utilisateur AD JohnDoe"
-
 try {
     
-
-
-
-# Intégration des utilisateurs selon le fichier CSV
-
-$csvPath = "C:\Scripts\utilisateurs.csv"
-$users = Import-Csv -Path $csvPath
-
-foreach ($user in $users) {
-    $OU = "OU=GRP-DEP-$($user.Département),OU=Utilisateurs,DC=mondomaine,DC=local"
-    $UPN = "$($user.Identifiant)@mondomaine.local"
-    $samAccountName = $user.Identifiant
-
-    if (-not (Get-ADUser -Filter { SamAccountName -eq $samAccountName } -ErrorAction SilentlyContinue)) {
-        New-ADUser `
-            -Name "$($user.Prénom) $($user.Nom)" `
-            -GivenName $user.Prénom `
-            -Surname $user.Nom `
-            -SamAccountName $samAccountName `
-            -UserPrincipalName $UPN `
-            -Path $OU `
-            -AccountPassword (ConvertTo-SecureString $user.MotDePasse -AsPlainText -Force) `
-            -Enabled $true
-        Add-ADGroupMember -Identity "GRP-DEP-$($user.Département)" -Members $samAccountName
-        Write-Host "Utilisateur $samAccountName créé et ajouté au groupe." -ForegroundColor Green
-    } else {
-        Write-Host "Utilisateur $samAccountName déjà existant." -ForegroundColor Yellow
-    }
-}
-
-    Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Information -EventId 110 -Message "Succès"
-}
+        # Intégration des utilisateurs selon le fichier CSV
+        
+        $csvPath = "C:\Scripts\utilisateurs.csv"
+        $users = Import-Csv -Path $csvPath
+        
+        foreach ($user in $users) {
+            $OU = "OU=GRP-DEP-$($user.Département),OU=Utilisateurs,DC=mondomaine,DC=local"
+            $UPN = "$($user.Identifiant)@mondomaine.local"
+            $samAccountName = $user.Identifiant
+        
+            if (-not (Get-ADUser -Filter { SamAccountName -eq $samAccountName } -ErrorAction SilentlyContinue)) {
+                New-ADUser `
+                    -Name "$($user.Prénom) $($user.Nom)" `
+                    -GivenName $user.Prénom `
+                    -Surname $user.Nom `
+                    -SamAccountName $samAccountName `
+                    -UserPrincipalName $UPN `
+                    -Path $OU `
+                    -AccountPassword (ConvertTo-SecureString $user.MotDePasse -AsPlainText -Force) `
+                    -Enabled $true
+                Add-ADGroupMember -Identity "GRP-DEP-$($user.Département)" -Members $samAccountName
+                Write-Host "Utilisateur $samAccountName créé et ajouté au groupe." -ForegroundColor Green
+            } else {
+                Write-Host "Utilisateur $samAccountName déjà existant." -ForegroundColor Yellow
+            }
+        }
+        
+            Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Information -EventId 110 -Message "Succès"
+        }
 catch {
     Write-Log "Erreur lors de la création de l'utilisateur : $_" -Level "ERROR"
     Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Error -EventId 500 -Message "Erreur : $_"
