@@ -46,20 +46,7 @@ Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Informatio
 Write-Log "Exemple : création d’un utilisateur AD JohnDoe"
 
 try {
-    # Exemple de commande
-    # New-ADUser -Name "JohnDoe" -GivenName "John" -Surname "Doe" -SamAccountName "JohnDoe" -AccountPassword (ConvertTo-SecureString "Password123!" -AsPlainText -Force) -Enabled $true
-
-    Write-Log "Création de l'utilisateur JohnDoe effectuée avec succès"
-    Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Information -EventId 110 -Message "Utilisateur JohnDoe créé avec succès"
-}
-catch {
-    Write-Log "Erreur lors de la création de l'utilisateur : $_" -Level "ERROR"
-    Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Error -EventId 500 -Message "Erreur : $_"
-}
-
-
-
-
+    
 
 
 
@@ -89,6 +76,16 @@ foreach ($user in $users) {
         Write-Host "Utilisateur $samAccountName déjà existant." -ForegroundColor Yellow
     }
 }
+
+    Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Information -EventId 110 -Message "Succès"
+}
+catch {
+    Write-Log "Erreur lors de la création de l'utilisateur : $_" -Level "ERROR"
+    Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Error -EventId 500 -Message "Erreur : $_"
+}
+
+
+
 
 
 # ===========================
