@@ -43,17 +43,21 @@ Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Informatio
 # 🔧 Zone des actions du script
 # ===========================
 
-Write-Log "Exemple : création d’un utilisateur AD JohnDoe"
+
 
 try {
-    # Exemple de commande
-    # New-ADUser -Name "JohnDoe" -GivenName "John" -Surname "Doe" -SamAccountName "JohnDoe" -AccountPassword (ConvertTo-SecureString "Password123!" -AsPlainText -Force) -Enabled $true
+    Autoriser 7h à 18h (heure locale), du lundi au vendredi, bypass cette règle pour les administrateurs
+$users = Get-ADUser -Filter * -SearchBase "OU=LabUtilisateurs,DC=ekoloclast,DC=local"
+foreach ($user in $users) {
+    if (-not (Get-ADGroupMember "Groupe_Bypass_Connexion" | Where-Object {$_.distinguishedName -eq $user.DistinguishedName})) {
+        Set-ADUser $user -LogonHours (New-LogonHours "Monday-Friday" 7 18)
+    }
+}
 
-    Write-Log "Création de l'utilisateur JohnDoe effectuée avec succès"
     Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Information -EventId 110 -Message "Utilisateur JohnDoe créé avec succès"
 }
 catch {
-    Write-Log "Erreur lors de la création de l'utilisateur : $_" -Level "ERROR"
+    Write-Log "Erreur  : $_" -Level "ERROR"
     Write-EventLog -LogName $EventLogName -Source $EventSource -EntryType Error -EventId 500 -Message "Erreur : $_"
 }
 
@@ -61,10 +65,3 @@ catch {
 
 
 
-Autoriser 7h à 18h (heure locale), du lundi au vendredi, bypass cette règle pour les administrateurs
-$users = Get-ADUser -Filter * -SearchBase "OU=LabUtilisateurs,DC=ekoloclast,DC=local"
-foreach ($user in $users) {
-    if (-not (Get-ADGroupMember "Groupe_Bypass_Connexion" | Where-Object {$_.distinguishedName -eq $user.DistinguishedName})) {
-        Set-ADUser $user -LogonHours (New-LogonHours "Monday-Friday" 7 18)
-    }
-}
