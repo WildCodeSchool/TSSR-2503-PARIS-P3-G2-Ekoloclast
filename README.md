@@ -181,6 +181,7 @@ Serveurs additionnels pour objectifs hebdomadaires:
 
 - SRV-GLPI : 192.168.9.26
 - SRV-ZABBIX : 192.168.9.30
+- SRV-SYSLOG : 192.168.9.31
 
 Passerelle : 	192.168.9.1
 Passerelle serveurs DMZ : 192.168.200.1
