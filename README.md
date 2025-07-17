@@ -196,6 +196,7 @@ passerelle :192.168.240.1
 
 Clients additionnels pour objectifs hebdomadaires:
 - WIN-GPI : 192.168.9.31
+- Client-OPENVPN : 192.168.9.42
 
 Adresse Webconfigurator pfSense : 192.168.9.254
 Connexion pfSense-Vyos : 10.0.0.1 pour pfsense et 10.0.0.2 pour Vyos, carte vmbr23
