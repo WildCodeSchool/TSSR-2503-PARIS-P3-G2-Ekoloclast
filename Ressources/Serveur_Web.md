@@ -27,7 +27,7 @@
 </head>
 <body>
     <h1>Bienvenue sur Ekoloclast</h1>
-    <p>Site de test hébergé sur un serveur Apache Ubuntu.</p>
+    <p>Site de test hébergé sur un serveur Apache Ubuntu.</p> 
 
     <footer>
         &copy; 2025 Ekoloclast - Tous droits réservés.
