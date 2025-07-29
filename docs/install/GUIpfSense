@@ -1,0 +1,73 @@
+# Guide d'installation de la VM G2-GUIpfSense
+
+## Description
+- **Nom GUI Proxmox :** G2-GUIpfSense  
+- **Nom machine :** WinClient-DF  
+- **Type :** VM Windows 10 Client  
+- **Fonction :** Poste client Windows utilisé pour accéder à l’interface web d’administration pfSense (GUI)  
+
+---
+
+## Prérequis
+- Serveur Proxmox fonctionnel  
+- ISO Windows 10 disponible dans Proxmox  
+- Licence Windows 10 valide  
+- Réseau configuré permettant d’atteindre l’IP de la VM pfSense  
+- Accès à la console Proxmox  
+
+---
+
+## Étapes d'installation
+
+### 1. Création de la VM dans Proxmox
+- Connectez-vous à l’interface web Proxmox.  
+- Cliquez sur **Créer VM**.  
+- Paramétrez la VM :  
+  - **Nom :** G2-GUIpfSense  
+  - **VM ID :** choisir un ID libre  
+  - **ISO d’installation :** Windows 10 ISO  
+  - **Disque dur :** minimum 40 Go recommandé  
+  - **RAM :** minimum 4 Go  
+  - **CPU :** 2 vCPU minimum  
+  - **Réseau :** connectée au VLAN ou réseau où se trouve pfSense (ex : VLAN management)  
+
+### 2. Installation de Windows 10
+- Démarrer la VM et ouvrir la console Proxmox.  
+- Installer Windows 10 normalement :  
+  - Suivre l’assistant d’installation  
+  - Configurer l’utilisateur local et mot de passe  
+  - Installer les drivers virtio si besoin (disques, réseau) pour améliorer performances  
+
+### 3. Configuration réseau et outils
+- Vérifier que la VM a une adresse IP sur le réseau correct.  
+- Installer les mises à jour Windows.  
+- Installer un navigateur moderne (Edge, Firefox, Chrome).  
+- Tester l’accès à l’interface web pfSense :  
+  - URL typique : `https://<IP-pfSense>/`  
+  - Accepter le certificat auto-signé si nécessaire  
+
+### 4. Sécurité et accès
+- Configurer un mot de passe fort pour l’utilisateur local.  
+- Configurer éventuellement un VPN ou accès sécurisé si la machine doit être utilisée à distance.  
+- Restreindre l’accès réseau si nécessaire via les règles pfSense.  
+
+---
+
+## Tests
+- Accéder à l’interface pfSense depuis le navigateur de la VM.  
+- Vérifier la connexion et la possibilité de modifier les réglages.  
+
+---
+
+## Documentation liée
+- [Documentation d’installation Windows 10 Client](../docs/install/WinClient-DF.md)  
+- [Documentation d’utilisation pfSense](../docs/usage/pfSense.md)  
+
+---
+
+## Support & dépannage
+- Vérifier la configuration réseau si accès à pfSense impossible.  
+- S’assurer que les services pfSense fonctionnent.  
+- Consulter les logs Windows et pfSense en cas de problème.
+
+---
