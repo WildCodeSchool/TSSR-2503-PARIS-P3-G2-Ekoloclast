@@ -1,0 +1,73 @@
+# Guide d'installation de la VM G2-WinClient-RH
+
+## Description
+- **Nom GUI Proxmox :** G2-WinClient-RH  
+- **Nom machine :** WinClient-RH  
+- **Type :** VM Poste client Windows 10  
+- **Fonction :** Poste client pour le service Ressources Humaines (RH)  
+
+---
+
+## Prérequis
+- Serveur Proxmox configuré et accessible  
+- ISO Windows 10 Enterprise ou Pro disponible dans Proxmox ou via média d'installation  
+- Clé de licence valide Windows 10 (si nécessaire)  
+- Plan réseau avec IP statique ou DHCP configuré  
+- Accès à l’interface Proxmox  
+
+---
+
+## Étapes d'installation
+
+### 1. Création de la VM dans Proxmox
+- Connectez-vous à l’interface web Proxmox.  
+- Cliquez sur **Créer VM**.  
+- Paramétrez la VM :  
+  - **Nom :** G2-WinClient-RH  
+  - **VM ID :** 204 (ou autre disponible)  
+  - **ISO d'installation :** Sélectionnez l’ISO Windows 10  
+  - **Disque dur :** 40 Go minimum (selon besoin)  
+  - **RAM :** 4 Go minimum  
+  - **CPU :** 2 vCPU minimum  
+  - **Réseau :** Configurez une interface réseau connectée au VLAN du service RH ou réseau interne approprié  
+
+### 2. Installation de Windows 10
+- Démarrez la VM et ouvrez la console Proxmox.  
+- Suivez les étapes classiques d’installation de Windows 10 :  
+  - Choix de la langue et du clavier  
+  - Partitionnement du disque (généralement utilisation complète du disque)  
+  - Installation du système  
+  - Saisie de la clé de licence (si demandée)  
+  - Création du compte utilisateur local ou configuration pour joindre un domaine  
+
+### 3. Configuration post-installation
+- Installer les **drivers virtio** si la VM utilise des pilotes virtio (disque, réseau) pour optimiser performances.  
+- Joindre la machine au domaine Active Directory (exemple) :  
+  - Ouvrir **Paramètres** > **Système** > **À propos** > **Renommer ce PC (paramètres avancés)**  
+  - Cliquer sur **Modifier**, sélectionner **Domaine**, saisir le nom du domaine (ex: ekoloclast.local)  
+  - Authentification avec un compte ayant les droits d’ajout de machines au domaine  
+  - Redémarrer la machine  
+- Configurer les stratégies de sécurité et politiques GPO via le domaine si applicable.  
+- Installer les logiciels métiers nécessaires au service RH (ex : suite bureautique, logiciel RH).  
+
+### 4. Tests
+- Vérifier que la machine communique bien avec les serveurs (AD, DNS, fichiers).  
+- Tester l’authentification domaine.  
+- Tester les accès réseau aux ressources partagées du service RH.  
+
+---
+
+## Documentation liée
+- [Documentation d'installation WinClient-RH](../docs/install/WinClient-RH.md)  
+- [Documentation d'utilisation WinClient-RH](../docs/usage/WinClient-RH.md)  
+
+---
+
+## Support & dépannage
+- Accès à la console Proxmox pour vérifier les logs et performances.  
+- Utiliser l’observateur d’événements Windows pour diagnostiquer les erreurs.  
+- Vérifier la connectivité réseau avec `ping`, `nslookup` et `tracert`.  
+
+---
+
+*Fin du guide d’installation pour G2-WinClient-RH*
