@@ -183,6 +183,8 @@ Serveurs additionnels pour objectifs hebdomadaires:
 - SRV-ZABBIX : 192.168.9.30
 - UBUNTU-SYSLOG : 192.168.200.87
 - SRV-FREEPBX : 192.168.9.41
+- GUIpfSense : 192.168.200.208
+- SRV-GUACAMOLE : 192.168.9.29
 
 Passerelle : 	192.168.9.1
 Passerelle serveurs DMZ : 192.168.200.1
